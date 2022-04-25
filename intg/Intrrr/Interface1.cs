@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace intg.Intrrr
+namespace Integral.Intrrr
 {
     interface ICalcult
     {

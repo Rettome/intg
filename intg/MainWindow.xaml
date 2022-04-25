@@ -1,4 +1,4 @@
-﻿<Window x:Class="intg.MainWindow"
+﻿<Window x:Class="Integral.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,11 +32,11 @@
 
 
         <TextBlock  Margin="0 0 10 0" Text="Количество разбиений" Grid.Column="1" Grid.Row="1"/>
-        <TextBox x:Name="perv" Margin="0 2 0 0" Grid.Row="2" Grid.Column="1" />
+        <TextBox x:Name="TxtBoxSteps" Margin="0 2 0 0" Grid.Row="2" Grid.Column="1" />
         <TextBlock  Margin="0 5 10 0" Text="Нижний предел" Grid.Column="1" Grid.Row="3"/>
-        <TextBox x:Name="vtor" Margin="0 2 0 0" Grid.Row="4" Grid.Column="1"/>
+        <TextBox x:Name="TxtBoxDownlim" Margin="0 2 0 0" Grid.Row="4" Grid.Column="1"/>
         <TextBlock  Margin="0 5 10 0" Text="Верхний предел" Grid.Column="1" Grid.Row="5"/>
-        <TextBox x:Name="tret" Margin="0 2 0 0" Grid.Row="6" Grid.Column="1"/>
+        <TextBox x:Name="TxtBoxUplim" Margin="0 2 0 0" Grid.Row="6" Grid.Column="1"/>
         <TextBlock Margin="0 5 10 0" Text="Выберите метод:" Grid.Column="1" Grid.Row="7"/>
         <ComboBox Name="metod" Margin="7 2 0 0" Grid.Row="8"  Grid.ColumnSpan="2" SelectedIndex="0">
             <TextBlock>Метод прямоугольника</TextBlock>
