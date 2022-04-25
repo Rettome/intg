@@ -17,8 +17,6 @@ namespace intg.Intrrr
             double h = (upLim - downLim) / count;
             double sum = 0;
 
-            //a += h * k;
-
             for(int i=0; i<count; i++)
             {
                 sum += integral(downLim + h * i);
