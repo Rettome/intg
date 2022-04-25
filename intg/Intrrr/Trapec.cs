@@ -10,6 +10,11 @@ namespace intg.Intrrr
     {
         double ICalcult.Calcul(int count, double upLim, double downLim, Func<double, double> integral, out double time)
         {
+            if (count<=0)
+            {
+                throw new ArgumentException();
+            }
+
             double h = (upLim - downLim) / count;
             double sum = 0;
 

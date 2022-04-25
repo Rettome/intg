@@ -11,6 +11,11 @@ namespace intg.Intrrr
     {
         double ICalcult.Calcul(int count, double upLim, double downLim, Func<double, double> integral, out double time)
         {
+            if (count<=0)
+            {
+                throw new ArgumentException();
+            }
+
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
