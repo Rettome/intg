@@ -31,11 +31,6 @@ namespace intg
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DoCalculete();
-            //int schet = Convert.ToInt32(perv.Text);
-            //int upLine = Convert.ToInt32(vtor.Text);
-            //int downLine = Convert.ToInt32(tret.Text);
-            //MessageBox.Show($" N={schet}\n Нижний предел={upLine}\n Верхний предел ={downLine}");
-            //MessageBox.Show(Convert.ToString(schet)+"!!");
         }
 
         private void btGraph_Click(object sender, RoutedEventArgs e)
@@ -50,7 +45,7 @@ namespace intg
             int downLim = Convert.ToInt32(vtor.Text);
             ICalcult calcultGraph = new Primog();
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 1; i < 1000; i++)
             {
                 double time = 0;
                 double result = calcultGraph.Calcul(i, upLim, downLim, x => (11 * x) - Math.Log(11 * x) - 2, out time);
@@ -63,25 +58,24 @@ namespace intg
 
         private ICalcult GetCalcult()
         {
-            switch(metod.SelectedIndex)
+             return metod.SelectedIndex switch
             {
-                case 0: return new Primog();
-                case 1: return new Trapec();
-                default: throw new NotImplementedException();
-
-            }
+                0 => new Primog();
+                1 => new Trapec();
+                _ => throw new NotImplementedException();
+            };
         }
 
         private void DoCalculete()
         {
-            int schet = Convert.ToInt32(perv.Text);
-            double upLine = Convert.ToDouble(tret.Text);
-            double downLine = Convert.ToDouble(vtor.Text);
+            int countSplits = Convert.ToInt32(perv.Text);
+            double upLim = Convert.ToDouble(tret.Text);
+            double downLim = Convert.ToDouble(vtor.Text);
             double time = 0;
 
             ICalcult calcult = GetCalcult();
-            double result = calcult.Calcul(schet, upLine, downLine, x => (11 * x) - Math.Log(11 * x) - 2, out time);
-            MessageBox.Show(result.ToString());
+            double result = calcult.Calcul(countSplits, upLim, downLim, x => (11 * x) - Math.Log(11 * x) - 2, out time);
+            MessageBox.Show($"Результат вычислений = {result.ToString()}");
         }
     }
 }
