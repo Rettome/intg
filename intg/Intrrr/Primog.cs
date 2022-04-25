@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace intg.Intrrr
+namespace Integral.Intrrr
 {
     class Primog : ICalcult
     {
@@ -14,7 +14,7 @@ namespace intg.Intrrr
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            double h = (upLim - downLim) / count;
+            double h = (upLim - downLim) / (double)count;
             double sum = 0;
 
             //a += h * k;
