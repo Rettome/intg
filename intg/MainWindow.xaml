@@ -32,13 +32,13 @@
 
 
         <TextBlock  Margin="0 0 10 0" Text="Количество разбиений" Grid.Column="1" Grid.Row="1"/>
-        <TextBox x:Name="perv" Margin="0 2 0 0" Grid.Row="2" Grid.Column="1" />
+        <TextBox x:Name="Count" Margin="0 2 0 0" Grid.Row="2" Grid.Column="1" />
         <TextBlock  Margin="0 5 10 0" Text="Нижний предел" Grid.Column="1" Grid.Row="3"/>
-        <TextBox x:Name="vtor" Margin="0 2 0 0" Grid.Row="4" Grid.Column="1"/>
+        <TextBox x:Name="tbDown" Margin="0 2 0 0" Grid.Row="4" Grid.Column="1"/>
         <TextBlock  Margin="0 5 10 0" Text="Верхний предел" Grid.Column="1" Grid.Row="5"/>
-        <TextBox x:Name="tret" Margin="0 2 0 0" Grid.Row="6" Grid.Column="1"/>
+        <TextBox x:Name="tbUp" Margin="0 2 0 0" Grid.Row="6" Grid.Column="1"/>
         <TextBlock Margin="0 5 10 0" Text="Выберите метод:" Grid.Column="1" Grid.Row="7"/>
-        <ComboBox Name="metod" Margin="7 2 0 0" Grid.Row="8"  Grid.ColumnSpan="2" SelectedIndex="0">
+        <ComboBox Name="MethodCalculate" Margin="7 2 0 0" Grid.Row="8"  Grid.ColumnSpan="2" SelectedIndex="0">
             <TextBlock>Метод прямоугольника</TextBlock>
             <TextBlock>Метод трапеции</TextBlock>
         </ComboBox>

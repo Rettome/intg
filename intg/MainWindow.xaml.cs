@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 using OxyPlot;
 using OxyPlot.Series;
 
@@ -30,12 +31,7 @@ namespace intg
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DoCalculete();
-            //int schet = Convert.ToInt32(perv.Text);
-            //int upLine = Convert.ToInt32(vtor.Text);
-            //int downLine = Convert.ToInt32(tret.Text);
-            //MessageBox.Show($" N={schet}\n Нижний предел={upLine}\n Верхний предел ={downLine}");
-            //MessageBox.Show(Convert.ToString(schet)+"!!");
+            DoCalculate();
         }
 
         private void btGraph_Click(object sender, RoutedEventArgs e)
@@ -46,11 +42,11 @@ namespace intg
             };
             var lineSeries = new LineSeries();
 
-            int upLim = Convert.ToInt32(tret.Text);
-            int downLim = Convert.ToInt32(vtor.Text);
-            ICalcult calcultGraph = new Primog();
+            int upLim = Convert.ToInt32(tbUp.Text);
+            int downLim = Convert.ToInt32(tbDown.Text);
+            ICalcult calcultGraph = GetCalcult();
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 1; i < 1000; i++)
             {
                 double time = 0;
                 double result = calcultGraph.Calcul(i, upLim, downLim, x => (11 * x) - Math.Log(11 * x) - 2, out time);
@@ -63,7 +59,7 @@ namespace intg
 
         private ICalcult GetCalcult()
         {
-            switch(metod.SelectedIndex)
+            switch(MethodCalculate.SelectedIndex)
             {
                 case 0: return new Primog();
                 case 1: return new Trapec();
@@ -72,16 +68,23 @@ namespace intg
             }
         }
 
-        private void DoCalculete()
+        private void DoCalculate()
         {
-            int schet = Convert.ToInt32(perv.Text);
-            double upLine = Convert.ToDouble(tret.Text);
-            double downLine = Convert.ToDouble(vtor.Text);
+            int schet = Convert.ToInt32(Count.Text);
+            double upLine = Convert.ToDouble(tbUp.Text);
+            double downLine = Convert.ToDouble(tbDown.Text);
             double time = 0;
 
             ICalcult calcult = GetCalcult();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             double result = calcult.Calcul(schet, upLine, downLine, x => (11 * x) - Math.Log(11 * x) - 2, out time);
-            MessageBox.Show(result.ToString());
+            
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            time = ts.TotalMilliseconds;
+            MessageBox.Show("Result: " + result.ToString()+ "\n time: " +
+                Convert.ToString(time));
         }
     }
 }
