@@ -8,7 +8,7 @@ namespace intg.Intrrr
 {
     class Trapec : ICalcult
     {
-        double ICalcult.Calcul(int count, double upLim, double downLim, Func<double, double> integral, out double time)
+        double ICalcult.Calcul(int count, double downLim, double upLim, Func<double, double> integral, out double time) 
         {
             double h = (upLim - downLim) / count;
             double sum = 0;
@@ -23,5 +23,5 @@ namespace intg.Intrrr
             time = 0;
             return h * sum;
         }
-    }
+    } 
 }
